@@ -1,5 +1,5 @@
 
-#include "bit_buffer.h"
+#include "bit_array.h"
 
 #include <stdlib.h>
 
@@ -41,7 +41,8 @@ void bit_array_resize(bit_array_t* array, unsigned int new_size) {
 		for(; i < new_size_bytes; i++)
 			array->_data[i] = 0x00;
 
-		free(tmp_data);
+		if(tmp_data != NULL)
+			free(tmp_data);
 	}
 }
 
