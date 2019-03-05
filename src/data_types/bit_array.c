@@ -9,6 +9,13 @@ void bit_array_init(bit_array_t* array, unsigned int size) {
 
 	array->_size = size;
 	array->_data = (unsigned char*)malloc(size_bytes);
+}
+
+void bit_array_init_zero(bit_array_t* array, unsigned int size) {
+	unsigned int size_bytes = bits_to_bytes(size);
+
+	array->_size = size;
+	array->_data = (unsigned char*)malloc(size_bytes);
 
 	for(int i = 0; i < size_bytes; i++)
 		array->_data[i] = 0x00;

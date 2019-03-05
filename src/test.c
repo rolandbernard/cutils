@@ -2,6 +2,7 @@
 #include "data_types/string.h"
 #include "data_types/linked_list.h"
 #include "data_types/tensor.h"
+#include "data_types/bit_array.h"
 
 #include <stdio.h>
 
@@ -85,16 +86,37 @@ int main(int argc, char** argv) {
 	tensor_init_zero(&tens, 4, size);
 	
 	unsigned int pos[] = {0, 0, 0, 0};
-	tensot_set(tens, pos, 1);
+	tensot_set(tens, pos, 1.5);
 	pos[1] = 1;
-	tensot_set(tens, pos, 2);
+	tensot_set(tens, pos, 2.25);
 	pos[2] = 2;
-	tensot_set(tens, pos, 3);
+	tensot_set(tens, pos, 3.75);
 	pos[3] = 3;
-	tensot_set(tens, pos, 4);
+	tensot_set(tens, pos, 4.2);
 
 	tensor_t tens2 = tensor_element_to_element_function(tens, sqr, NULL);
 	tensor_element_function(tens2, print, NULL);
+
+	tensor_free(&tens);
+	tensor_free(&tens2);
+
+	bit_array_t ba;
+	bit_array_init(&ba, 12);
+
+	for(int i = 0; i < 12; i++)
+		bit_array_set(ba, i, i%2);
+
+	fprintf(stderr, "\n");
+	for(int i = 0; i < 12; i++)
+		fprintf(stderr, "%hhu\n", bit_array_get(ba, i));
+
+	bit_array_resize(&ba, 20);
+
+	fprintf(stderr, "\n");
+	for(int i = 0; i < 20; i++)
+		fprintf(stderr, "%hhu\n", bit_array_get(ba, i));
+
+	bit_array_free(&ba);
 
 	return 0;
 }

@@ -12,6 +12,8 @@ typedef struct {
 
 void bit_array_init(bit_array_t* array, unsigned int size);
 
+void bit_array_init_zero(bit_array_t* array, unsigned int size);
+
 void bit_array_set(bit_array_t array, unsigned int index, unsigned char val);
 
 unsigned char bit_array_get(bit_array_t array, unsigned int index);
