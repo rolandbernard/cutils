@@ -1,3 +1,5 @@
+// Copyright (c) 2019 Roland Bernard
+
 #ifndef __BIT_ARRAY_H__
 #define __BIT_ARRAY_H__
 

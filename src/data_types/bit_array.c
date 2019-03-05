@@ -1,3 +1,4 @@
+// Copyright (c) 2019 Roland Bernard
 
 #include "bit_array.h"
 

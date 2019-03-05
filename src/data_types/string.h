@@ -1,3 +1,5 @@
+// Copyright (c) 2019 Roland Bernard
+
 #ifndef __STRING_H__
 #define __STRING_H__
 

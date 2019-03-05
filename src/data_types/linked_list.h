@@ -1,3 +1,5 @@
+// Copyright (c) 2019 Roland Bernard
+
 #ifndef __LINKED_LIST_H__
 #define __LINKED_LIST_H__
 
