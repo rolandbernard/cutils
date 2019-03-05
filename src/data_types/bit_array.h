@@ -20,6 +20,8 @@ unsigned char bit_array_get(bit_array_t array, unsigned int index);
 
 void bit_array_resize(bit_array_t* array, unsigned int new_size);
 
+void bit_array_resize_zero(bit_array_t* array, unsigned int new_size);
+
 void bit_array_free(bit_array_t* array);
 
 #endif

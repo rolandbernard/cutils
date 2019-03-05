@@ -104,17 +104,18 @@ int main(int argc, char** argv) {
 	bit_array_init(&ba, 12);
 
 	for(int i = 0; i < 12; i++)
-		bit_array_set(ba, i, i%2);
-
+		bit_array_set(ba, i, 1);
+	
 	fprintf(stderr, "\n");
 	for(int i = 0; i < 12; i++)
 		fprintf(stderr, "%hhu\n", bit_array_get(ba, i));
 
-	bit_array_resize(&ba, 20);
+	bit_array_resize_zero(&ba, 20);
 
 	fprintf(stderr, "\n");
-	for(int i = 0; i < 20; i++)
+	for(int i = 0; i < 20; i++) {
 		fprintf(stderr, "%hhu\n", bit_array_get(ba, i));
+	}
 
 	bit_array_free(&ba);
 

@@ -38,19 +38,24 @@ void bit_array_resize(bit_array_t* array, unsigned int new_size) {
 	unsigned int size_bytes = bits_to_bytes(array->_size);
 
 	if(new_size_bytes != size_bytes) {
-		unsigned char* tmp_data = array->_data;
-
 		array->_size = new_size;
-		array->_data = (unsigned char*)malloc(new_size_bytes);
+		array->_data = (unsigned char*)realloc(array->_data, new_size_bytes);
+	}
+}
 
-		int i;
-		for(i = 0; i < size_bytes && i < new_size_bytes; i++)
-			array->_data[i] = tmp_data[i];
-		for(; i < new_size_bytes; i++)
+void bit_array_resize_zero(bit_array_t* array, unsigned int new_size) {
+	unsigned int new_size_bytes = bits_to_bytes(new_size);
+	unsigned int size_bytes = bits_to_bytes(array->_size);
+
+	if(new_size_bytes != size_bytes) {
+		array->_data = (unsigned char*)realloc(array->_data, new_size_bytes);
+
+		for(int i = array->_size; i < size_bytes*8; i++)
+			bit_array_set(*array, i, 0);
+		for(int i = size_bytes; i < new_size_bytes; i++)
 			array->_data[i] = 0x00;
-
-		if(tmp_data != NULL)
-			free(tmp_data);
+		
+		array->_size = new_size;
 	}
 }
 
