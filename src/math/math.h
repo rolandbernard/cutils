@@ -1,11 +1,18 @@
 // Copyright (c) 2019 Roland Bernard
-
+ 
 #ifndef __MATH_H__
 #define __MATH_H__
 
-#include <math.h>
+#include "scalar.h"
 
-#define min(x, y) (x < y ? x : y)
-#define max(x, y) (x > y ? x : y)
+#include "vec2.h"
+#include "vec3.h"
+#include "vec4.h"
+
+#include "mat2.h"
+#include "mat3.h"
+#include "mat4.h"
+
+#include "transform.h"
 
 #endif
