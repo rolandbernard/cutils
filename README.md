@@ -1,7 +1,7 @@
 CUtils
 ======
 
-Some things I implemented in C. Not extremely usefull but maybe interesting.
+Some things I implemented in C. Not extremely usefull.
 
 ---
 ###### Copyright (c) 2019 Roland Bernard
